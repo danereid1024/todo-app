@@ -41,7 +41,7 @@ toggleCompletion(index: number): void {
 }
 
 deleteTask(id: number): void {
-    this.todoList = this.todoList.filter(item => item.id !== id);
+    this.todoList = this.todoList.filter(item => item.id !== id); //delete task
     console.log(this.todoList)
   }
 }
