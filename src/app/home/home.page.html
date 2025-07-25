@@ -13,15 +13,15 @@
   <ion-input [(ngModel)]="newTask" placeholder="Enter new task..."></ion-input>
   <ion-button (click)="addTask()">Add</ion-button>
   </div>
-  <ion-list *ngFor="let todoItem of todoList; let i = index" [ngClass]="{'completed': todoItem.completed}">
-    <ion-item>
-      <ion-checkbox slot="start" [(ngModel)]="todoItem.completed"></ion-checkbox>
-      <ion-label [class.completed]="todoItem.completed">
-        {{todoItem.task}}
-      </ion-label>
-      <ion-button color="danger "(click)="deleteTask(todoItem.id)">Delete</ion-button>
-    </ion-item>
-    
-  </ion-list>
+
+  <ion-list *ngFor="let todoItem of todoList; let i = index">
+  <ion-item>
+    <ion-checkbox slot="start" [(ngModel)]="todoItem.completed" (change)="toggleCompletion(i)"></ion-checkbox>
+    <ion-label [class.completed]="todoItem.completed" class="todo-label">
+      {{todoItem.task}}
+    </ion-label>
+    <ion-button color="danger" (click)="deleteTask(todoItem.id)">Delete</ion-button>
+  </ion-item>
+</ion-list>
 
 </ion-content>
